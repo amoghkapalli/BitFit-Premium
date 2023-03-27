@@ -3,19 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <TextView
-        android:id="@+id/foodName_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/food"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginTop="70dp"
-        android:layout_marginStart="100dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".DetailActivity">
 
     <EditText
         android:id="@+id/foodName_entry"
@@ -27,6 +16,30 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="60dp"
         app:layout_constraintStart_toEndOf="@+id/foodName_label"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/calorieAmount_entry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:hint="@string/enter_calorie_amount"
+        android:inputType="number"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/calorieAmount_label"
+        app:layout_constraintTop_toBottomOf="@+id/foodName_entry" />
+
+    <TextView
+        android:id="@+id/foodName_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="68dp"
+        android:text="@string/food"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -41,18 +54,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/foodName_label" />
 
-    <EditText
-        android:id="@+id/calorieAmount_entry"
+    <Button
+        android:id="@+id/AddItemButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="20dp"
-        android:hint="@string/enter_calorie_amount"
-        android:inputType="number"
-        android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/calorieAmount_label"
-        app:layout_constraintTop_toBottomOf="@+id/foodName_entry" />
-
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calorieAmount_entry" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase
 @Database(entities = [FoodEntity::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
 
-    abstract fun articleDao(): FoodDao
+    abstract fun FoodDao(): FoodDao
 
     companion object {
 

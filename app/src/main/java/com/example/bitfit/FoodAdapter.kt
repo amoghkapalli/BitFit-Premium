@@ -5,15 +5,13 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 
 const val ARTICLE_EXTRA = "ARTICLE_EXTRA"
 private const val TAG = "ArticleAdapter"
 
-class FoodAdapter(private val context: Context, private val articles: List<Food>) :
+class FoodAdapter(private val context: Context, private val foodList: List<Food>) :
     RecyclerView.Adapter<FoodAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -22,18 +20,22 @@ class FoodAdapter(private val context: Context, private val articles: List<Food>
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val article = articles[position]
+        val article = foodList[position]
         holder.bind(article)
     }
 
-    override fun getItemCount() = articles.size
+    override fun getItemCount() = foodList.size
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
+        View.OnClickListener {
 
         private val foods = itemView.findViewById<TextView>(R.id.tv_foodName)
         private val dat = itemView.findViewById<TextView>(R.id.tv_date)
         private val calories = itemView.findViewById<TextView>(R.id.tv_calories)
-
+        init
+        {
+            itemView.setOnClickListener(this)
+        }
         fun bind(article: Food) {
             foods.text= article.foodName
             dat.text = article.date
@@ -41,5 +43,10 @@ class FoodAdapter(private val context: Context, private val articles: List<Food>
 
         }
 
+        override fun onClick(p0: View?) {
+
+        }
+
     }
 }
+

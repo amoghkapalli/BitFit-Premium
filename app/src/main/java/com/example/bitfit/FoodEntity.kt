@@ -8,6 +8,5 @@ data class FoodEntity(
     @PrimaryKey(autoGenerate = true) val id: Long = 0,
     @ColumnInfo(name = "date") val date: String?,
     @ColumnInfo(name = "foodName") val foodName: String?,
-    @ColumnInfo(name = "amount") val amount: String?,
     @ColumnInfo(name = "totalCalories") val totalCalories: String?
 )

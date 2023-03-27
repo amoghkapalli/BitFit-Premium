@@ -39,6 +39,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/foodListView"
         android:layout_width="409dp"
         android:layout_height="517dp"
         app:layout_constraintBottom_toTopOf="@+id/AddItemButton"

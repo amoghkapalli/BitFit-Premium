@@ -1,34 +1,35 @@
 package com.example.bitfit
 
 
+import android.content.Intent
 import android.os.Bundle
-import android.widget.ImageView
-import android.widget.TextView
+import android.view.View
+import android.widget.Button
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
-import com.bumptech.glide.Glide
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 private const val TAG = "DetailActivity"
 
 class DetailActivity : AppCompatActivity() {
 
-    private lateinit var foodName: TextView
-    private lateinit var date: TextView
-    private lateinit var calories: TextView
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.food_card)
+        setContentView(R.layout.food_input)
 
-        foodName = findViewById(R.id.tv_foodName)
-        date = findViewById(R.id.tv_date)
-        calories = findViewById(R.id.tv_calories)
+        val foodName:EditText = findViewById(R.id.foodName_entry)
+        val calories:EditText = findViewById(R.id.calorieAmount_entry)
+        val recordInputButton: Button = findViewById<Button>(R.id.AddItemButton)
 
-
-        val article = intent.getSerializableExtra(ARTICLE_EXTRA) as Food
-
-        // Set title and abstract information for the article
-        foodName.text = article.foodName
-        date.text = article.date
-        calories.text = article.totalCalories.toString()
+        val current = LocalDateTime.now()
+        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+        val formattedDate: String = current.format(formatter).toString()
+        recordInputButton.setOnClickListener(View.OnClickListener {
+            val resultIntent = Intent()
+            resultIntent.putExtra("result", Food(date =formattedDate, foodName = foodName.text.toString(), totalCalories = calories.text.toString()))
+            setResult(RESULT_OK, resultIntent)
+            finish()
+        })
     }
 }
