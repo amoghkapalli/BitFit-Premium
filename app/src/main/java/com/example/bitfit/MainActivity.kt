@@ -17,7 +17,10 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 private var totalCaloriesAte: Double = 0.0
-class MainActivity : AppCompatActivity() {
+const val AVERAGE: String = "AVERAGE"
+const val MINIMUM: String = "MINIMUM"
+const val MAXIMUM: String = "MAXIMUM"
+class MainActivity : AppCompatActivity(), DashboardFragment.OnClearListener{
     private lateinit var nutritionRV: RecyclerView
     private lateinit var date: TextView
     private lateinit var nutritionAdapter: FoodAdapter
@@ -85,6 +88,10 @@ class MainActivity : AppCompatActivity() {
                 //binding?.tv_greeting?.text = "Total calories needed per day: 2000 kcal\nTotal calories you ate today: $totalCaloriesAte kcal" // update the summary TextView
             }
         }
+    }
+
+    override fun onClearData() {
+        TODO("Not yet implemented")
     }
     /*
         binding?.btnDelete?.setOnClickListener {
