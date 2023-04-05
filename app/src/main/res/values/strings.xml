@@ -5,4 +5,7 @@
     <string name="enter_food_item">Enter food item</string>
     <string name="food">Food:</string>
     <string name="add_new_food">Add new Food</string>
+    <string name="clear_data">Clear Data</string>
+    <string name="maximum_calories">Maximum Calories:</string>
+    <string name="minimum_calories">Minimum Calories:</string>
 </resources>
